@@ -81,13 +81,15 @@ inline void Heap<T>::PercolateUp()
 	                         //把暂存的元素移到调整后的位置
 }
 
+ //将数组H调整为堆
 template<class T>
-inline void Heap<T>::BuildHeap(T * pa, int size)
+inline void Heap<T>::BuildHeap(T * pa, int size)  
 {
-	for (int i = size / 2 - 1; i >= 0; i--)
-		PercolateDown(pa, i, size);
+	for (int i = size / 2 - 1; i >= 0; i--)      //从邻近的叶子的第一个非叶子结点至根结点
+		PercolateDown(pa, i, size);              //将下标【i，size】范围内的数据向下调整为堆
 }
 
+//将下标为【POS，size】向下调整为堆
 template<class T>
 inline void Heap<T>::PercolateDown(T * pa, int pos, int size)
 {
@@ -161,6 +163,7 @@ inline void Heap<T>::DeleteMin(T & item)
 	PercolateDown(0);
 }
 
+//堆排序
 template<class T>
 inline void Heap<T>::HeapSort(T * pa, int n)
 {

@@ -13,7 +13,7 @@ struct HufmNode
 };
 
 
-//MakeHuffm
+//MakeHuffmanTree
 template<class T>
 BTNode<T> * MakeHufm(const T*pa, int n)
 {
@@ -32,13 +32,13 @@ BTNode<T> * MakeHufm(const T*pa, int n)
 		right = hf.t;
 		H.DeleteMin(hf);
 		left = hf.t;
-		if (right->data == left->data&&(left->right!=NULL||left->left!=NULL))
+		if (right->data == left->data&&(left->right!=NULL||left->left!=NULL)) //若权值相同交换左右孩子
 		{ 
 			t = GetBTNode(left->data + right->data, right, left);
 		}
 		else
 		{
-			t = GetBTNode(left->data + right->data, left, right);
+			t = GetBTNode(left->data + right->data, left, right);   //构建二叉树
 		}
 		hf.t = t;
 		H.Insert(hf);
