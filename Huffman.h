@@ -43,7 +43,7 @@ public:
 };
 
 template<class T>
-inline Huffman<T>::Huffman(const T * x, const int* w, int size)
+inline Huffman<T>::Huffman(const T * x, const int* w, int size)             //利用下标创建哈夫曼树
 {
 	const int MAX_INT = 1000;
 	int min1, min2;
@@ -52,7 +52,7 @@ inline Huffman<T>::Huffman(const T * x, const int* w, int size)
 	length = 2 * size;
 	elem = new Node[length];
 
-	for (int i = size; i < length; ++i)
+	for (int i = size; i < length; ++i)                             //对哈夫曼树进行初始化
 	{
 		elem[i].weight = w[i - size];
 		elem[i].data = x[i - size];
